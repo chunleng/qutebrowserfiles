@@ -77,7 +77,7 @@ def setup(config):
     bind_in_all_mode("<Ctrl-c>", "mode-enter normal")
     config.bind("m", ":bookmark-add")
 
-    bind_in_all_mode("<Meta-q>", ":quit")
+    bind_in_all_mode("<Meta-q>", ":quit --save")
 
     config.bind("<Ctrl-d>", ":cmd-repeat 12 scroll down")
     config.bind("<Ctrl-u>", ":cmd-repeat 12 scroll up")
