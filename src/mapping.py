@@ -58,6 +58,9 @@ def setup(config):
     config.bind("<space>tt", ":jseval -q -f ~/.qutebrowser/js/translate.js")
     config.bind("<space>gq", ":spawn -u qr.sh {url}")
     config.bind("<space>d", ":devtools")
+    config.bind("<Ctrl-space>a", ":spawn -u lpass.py", mode="insert")
+    config.bind("<Ctrl-space>u", ":spawn -u lpass.py --username-only", mode="insert")
+    config.bind("<Ctrl-space>p", ":spawn -u lpass.py --password-only", mode="insert")
 
     config.bind("<Ctrl-u>", ":fake-key <Ctrl-backspace>", mode="insert")
     config.bind("<Ctrl-w>", ":fake-key <Alt-Shift-left>;;fake-key <backspace>", mode="insert")
