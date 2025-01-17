@@ -1,3 +1,7 @@
+import glob
+from os.path import expanduser
+from pathlib import Path
+
 from qutebrowser.config.config import ConfigContainer
 from qutebrowser.config.configfiles import ConfigAPI
 from qutebrowser.utils.urlmatch import UrlPattern
@@ -63,3 +67,30 @@ c.colors.webpage.darkmode._config.set_str(
 
 mapping.setup(config)
 style.setup(c)
+
+# Configurations for local
+home = expanduser("~")
+
+bookmarks_files = glob.glob(f"{home}/.qutebrowser/bookmarks.*")
+# Note when setting up the files for local, the last loaded key will be used for quickmarks if there is duplicate
+quickmarks_files = glob.glob(f"{home}/.qutebrowser/quickmarks.*")
+
+bookmarks_target = Path(f"{home}/.qutebrowser/bookmarks/urls")
+quickmarks_target = Path(f"{home}/.qutebrowser/quickmarks")
+
+with open(bookmarks_target, "a") as o:
+    for f in bookmarks_files:
+        with open(f, "r") as i:
+            o.writelines(i.readlines())
+with open(quickmarks_target, "a") as o:
+    for f in quickmarks_files:
+        with open(f, "r") as i:
+            o.writelines(i.readlines())
+
+try:
+    import local
+
+    local.setup(c, config)
+except ModuleNotFoundError as e:
+    # No local config
+    pass
