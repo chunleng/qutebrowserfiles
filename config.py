@@ -1,5 +1,6 @@
 from qutebrowser.config.config import ConfigContainer
 from qutebrowser.config.configfiles import ConfigAPI
+from qutebrowser.utils.urlmatch import UrlPattern
 
 from src import mapping, style
 
@@ -49,6 +50,11 @@ c.editor.command = [
     "~/.asdf/shims/nvim +'setf browser' {file}",
 ]
 c.content.pdfjs = True
+c.content.headers._config.set_str(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}; rv:130.0) Gecko/20100101 Firefox/130",
+    pattern=UrlPattern("https://accounts.google.com/*"),
+)
 
 mapping.setup(config)
 style.setup(c)
