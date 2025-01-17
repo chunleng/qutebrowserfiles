@@ -55,6 +55,11 @@ c.content.headers._config.set_str(
     "Mozilla/5.0 ({os_info}; rv:130.0) Gecko/20100101 Firefox/130",
     pattern=UrlPattern("https://accounts.google.com/*"),
 )
+c.colors.webpage.darkmode._config.set_str(
+    "colors.webpage.darkmode.enabled",
+    "false",
+    pattern=UrlPattern("https://docs.google.com/*"),
+)
 
 mapping.setup(config)
 style.setup(c)
