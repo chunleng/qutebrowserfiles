@@ -67,6 +67,7 @@ c.colors.webpage.darkmode._config.set_str(
     pattern=UrlPattern("https://docs.google.com/*"),
 )
 c.scrolling.smooth = True
+c.tabs.new_position.unrelated = "next"
 
 mapping.setup(config)
 style.setup(c)
