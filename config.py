@@ -64,6 +64,7 @@ c.colors.webpage.darkmode._config.set_str(
     "false",
     pattern=UrlPattern("https://docs.google.com/*"),
 )
+c.scrolling.smooth = True
 
 mapping.setup(config)
 style.setup(c)
