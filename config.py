@@ -19,14 +19,16 @@ c.url.start_pages = [
     "https://calendar.google.com/calendar",
     "https://mail.google.com/mail",
 ]
+default_searchengine =  "https://www.ecosia.org/search?q={}"
 c.url.searchengines = {
-    "DEFAULT": "https://www.ecosia.org/search?q={}",
+    "DEFAULT": default_searchengine,
     "docker": "https://hub.docker.com/search?q={}",
     "g": "https://www.google.com/search?q={}",
     "map": "https://www.google.com/maps/search/{}",
     "py": "https://pypi.org/search/?q={}",
     "rd": "https://docs.rs/{}",
     "rs": "https://docs.rs/releases/search?query={}",
+    "s": default_searchengine,
     "yt": "https://www.youtube.com/results?search_query={}",
     ":": "http://127.0.0.1:{}",
 }
