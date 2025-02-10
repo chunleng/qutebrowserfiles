@@ -68,6 +68,7 @@ c.colors.webpage.darkmode._config.set_str(
 )
 c.scrolling.smooth = True
 c.tabs.new_position.unrelated = "next"
+c.content.headers.accept_language = "en;q=1,zh;q=0.9,jp;q=0.9"
 
 mapping.setup(config)
 style.setup(c)
